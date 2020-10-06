@@ -61,6 +61,7 @@ export class FormWizardPdfGenerator extends PdfGenerator {
         const finalPdfName = this.finalPdfName(formSubmission, schema);
         try {
             pdfFiles = await puppeteer.launch({
+                executablePath: process.env.CHROMIUM_PATH,
                 headless: true,
                 args: ['--unlimited-storage',
                     '--ignore-certificate-errors',
